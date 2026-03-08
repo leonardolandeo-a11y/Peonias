@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Peonías 🌸</title>
+
+<style>
+
+/* RESET */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+/* BODY */
+
+body{
+
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+font-family:Georgia, serif;
+text-align:center;
+
+background-image:url("https://florelimatelier.com/cdn/shop/files/1_0968b425-eb68-4830-9340-5800a2dbf35c.jpg?v=1751065810");
+background-size:cover;
+background-position:center;
+overflow:hidden;
+
+}
+
+/* overlay romántico */
+
+.overlay{
+
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+
+background:rgba(255,255,255,0.45);
+
+backdrop-filter:blur(2px);
+
+}
+
+/* TARJETA */
+
+.card{
+
+position:relative;
+
+background:linear-gradient(
+145deg,
+rgba(255,240,245,0.95),
+rgba(255,228,235,0.9)
+);
+
+padding:50px;
+border-radius:22px;
+
+max-width:520px;
+
+box-shadow:0 25px 60px rgba(0,0,0,0.25);
+
+backdrop-filter:blur(10px);
+
+animation:fadeIn 2s ease;
+
+z-index:2;
+
+}
+
+/* TITULO */
+
+h1{
+
+font-size:42px;
+color:#d94c79;
+
+margin-bottom:15px;
+letter-spacing:2px;
+
+}
+
+/* POEMA */
+
+.poema{
+
+font-size:20px;
+line-height:1.9;
+
+color:#555;  /* gris plomo elegante */
+
+white-space:pre-line;
+
+font-style:italic;
+
+letter-spacing:0.4px;
+
+margin-top:15px;
+
+animation:poemFade 3s ease;
+
+}
+
+/* BOTON */
+
+button{
+
+margin-top:30px;
+
+padding:14px 34px;
+
+border:none;
+
+border-radius:12px;
+
+background:#ff6b9a;
+
+color:white;
+
+font-size:17px;
+
+cursor:pointer;
+
+transition:0.3s;
+
+box-shadow:0 6px 20px rgba(0,0,0,0.2);
+
+}
+
+button:hover{
+
+background:#ff3f80;
+
+transform:scale(1.07);
+
+}
+
+/* ANIMACIONES */
+
+@keyframes fadeIn{
+
+from{
+opacity:0;
+transform:translateY(30px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
+@keyframes poemFade{
+
+from{
+opacity:0;
+}
+
+to{
+opacity:1;
+}
+
+}
+
+/* PETALOS */
+
+.petal{
+
+position:fixed;
+
+top:-10px;
+
+font-size:20px;
+
+animation:fall linear infinite;
+
+}
+
+@keyframes fall{
+
+to{
+
+transform:translateY(110vh) rotate(360deg);
+
+}
+
+}
+
+/* CORAZONES */
+
+.heart{
+
+position:fixed;
+
+bottom:-20px;
+
+font-size:18px;
+
+animation:float 6s linear infinite;
+
+}
+
+@keyframes float{
+
+to{
+
+transform:translateY(-110vh);
+
+opacity:0;
+
+}
+
+}
+
+/* CELULAR */
+
+@media(max-width:600px){
+
+.card{
+margin:20px;
+padding:30px;
+}
+
+h1{
+font-size:30px;
+}
+
+.poema{
+font-size:18px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="overlay"></div>
+
+<div class="card">
+
+<h1>Peonías 🌸</h1>
+
+<div class="poema">
+
+Mi querida chica…
+
+En este día te dedico el amor mío a tu corazón.
+Te dedico una mirada a tus ojos,
+te dedico un beso a tus labios,
+te dedico un latido de mi corazón.
+
+Tú llegaste para ser el siempre,
+me ayudaste a construir mi corazón.
+
+Mi querida chica…
+
+Nuestros corazones están tan juntos.
+Contigo mi alma paz sintió,
+contigo mi corazón a latir aprendió.
+
+Te quiero, mi chica mía.
+
+Caminemos esperando aquel destino
+que nos ampara.
+
+</div>
+
+<button onclick="playMusic()">Escuchar música 🎶</button>
+
+</div>
+
+<audio id="music" loop>
+<source src="audio.mpeg" type="audio/mpeg">
+</audio>
+
+<script>
+
+/* MUSICA */
+
+function playMusic(){
+
+document.getElementById("music").play();
+
+}
+
+/* PETALOS */
+
+function createPetal(){
+
+let petal=document.createElement("div");
+
+petal.className="petal";
+
+petal.innerHTML="🌸";
+
+petal.style.left=Math.random()*100+"vw";
+
+petal.style.animationDuration=(5+Math.random()*5)+"s";
+
+document.body.appendChild(petal);
+
+setTimeout(()=>petal.remove(),10000);
+
+}
+
+setInterval(createPetal,500);
+
+/* CORAZONES */
+
+function createHeart(){
+
+let heart=document.createElement("div");
+
+heart.className="heart";
+
+heart.innerHTML="💗";
+
+heart.style.left=Math.random()*100+"vw";
+
+heart.style.animationDuration=(4+Math.random()*3)+"s";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>heart.remove(),7000);
+
+}
+
+setInterval(createHeart,1200);
+
+</script>
+
+</body>
+</html>
