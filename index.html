@@ -21,17 +21,21 @@ box-sizing:border-box;
 
 body{
 
-height:100vh;
+min-height:100vh;
 display:flex;
 justify-content:center;
 align-items:center;
+
+padding:20px;
+
 font-family:Georgia, serif;
 text-align:center;
 
 background-image:url("https://florelimatelier.com/cdn/shop/files/1_0968b425-eb68-4830-9340-5800a2dbf35c.jpg?v=1751065810");
 background-size:cover;
 background-position:center;
-overflow:hidden;
+
+overflow-x:hidden;
 
 }
 
@@ -52,7 +56,6 @@ backdrop-filter:blur(2px);
 }
 
 /* TARJETA */
-
 .card{
 
 position:relative;
@@ -63,10 +66,12 @@ rgba(255,240,245,0.95),
 rgba(255,228,235,0.9)
 );
 
-padding:50px;
+padding:40px;
+
 border-radius:22px;
 
 max-width:520px;
+width:90%;
 
 box-shadow:0 25px 60px rgba(0,0,0,0.25);
 
@@ -77,16 +82,19 @@ animation:fadeIn 2s ease;
 z-index:2;
 
 }
-
 /* TITULO */
 
 h1{
 
-font-size:42px;
+font-size:clamp(24px,6vw,42px);
+
 color:#d94c79;
 
 margin-bottom:15px;
+
 letter-spacing:2px;
+
+word-break:break-word;
 
 }
 
@@ -115,9 +123,9 @@ animation:poemFade 3s ease;
 
 button{
 
-margin-top:30px;
+margin-top:25px;
 
-padding:14px 34px;
+padding:12px 18px;
 
 border:none;
 
@@ -127,13 +135,16 @@ background:#ff6b9a;
 
 color:white;
 
-font-size:17px;
+font-size:16px;
 
 cursor:pointer;
 
 transition:0.3s;
 
 box-shadow:0 6px 20px rgba(0,0,0,0.2);
+
+width:100%;
+max-width:260px;
 
 }
 
@@ -224,24 +235,43 @@ opacity:0;
 }
 
 /* CELULAR */
-
 @media(max-width:600px){
 
+body{
+padding:20px;
+align-items:center;
+}
+
 .card{
-margin:20px;
-padding:30px;
+
+width:100%;
+max-width:90%;
+
+padding:25px;
+
+border-radius:18px;
+
 }
 
 h1{
-font-size:30px;
+font-size:26px;
 }
 
 .poema{
-font-size:18px;
+font-size:16px;
+line-height:1.7;
 }
+
+button{
+
+width:100%;
+font-size:16px;
+
+padding:12px;
 
 }
 
+}
 </style>
 
 </head>
